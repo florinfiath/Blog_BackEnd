@@ -17,11 +17,7 @@ const config = require("./config/configs");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const postsRouter = require("./routes/post");
-const Post = require("./models/Post");
-const User = require("./models/User");
-const { validateInputs } = require("./middleware/validator");
-const postValidationRules = require("./lib/validation/postRules");
-const userValidationRules = require("./lib/validation/userRules");
+
 
 // set CORS security for the client website
 const { setCors } = require("./middleware/security");
@@ -33,16 +29,16 @@ const app = express();
 app.use(logger("dev"));
 //let connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.5jwqg.mongodb.net/Blog?retryWrites=true&w=majority`;
 /**CONNECT TO DB */
-mongoose.connect(config.db, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// mongoose.connect(config.db, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", () => {
-  console.log("Successfully connected to the database ");
-});
+// const db = mongoose.connection;
+// db.on("error", console.error.bind(console, "connection error:"));
+// db.once("open", () => {
+//   console.log("Successfully connected to the database ");
+// });
 
 // SETTING UP LOWDB database
 // const adapter = new FileSync("data/db.json");
