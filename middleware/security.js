@@ -2,7 +2,10 @@
 exports.setCors = (req, res, next) => {
     //set the header according with CORS settings
     //allow frontend local host with port 3000 to access my backend
-  res.header("Access-Control-Allow-Origin", "http://localhost:3001");
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://florinsblog.herokuapp.com/"
+  );
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, x-Requested-With, Content-Type, Accept"

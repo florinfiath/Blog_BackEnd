@@ -6,6 +6,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
+const config = require("./config/configs");
 
 //DEPENDENCIES FROM LOWDB
 
@@ -30,9 +31,9 @@ const app = express();
 
 /** LOGGING */
 app.use(logger("dev"));
-// let connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.5jwqg.mongodb.net/Blog?retryWrites=true&w=majority`;
+//let connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.5jwqg.mongodb.net/Blog?retryWrites=true&w=majority`;
 /**CONNECT TO DB */
-mongoose.connect(process.env.DB_STRING, {
+mongoose.connect(config.db, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

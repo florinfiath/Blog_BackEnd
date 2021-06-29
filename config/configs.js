@@ -1,0 +1,26 @@
+const { env } = process;
+const dotenv = require("dotenv");
+dotenv.config();
+//stores the environment passed by the command line (fe.NODE_ENV=development (local) or NODE_ENV=productive (server))
+const config = {
+  env: env.NODE_ENV || "development",
+};
+//configuration parameters for the local environment
+const connectionString =
+  "mongodb+srv://Florin:test1234@cluster0.5jwqg.mongodb.net/test?authSource=admin&replicaSet=atlas-x9nrpz-shard-0&readPreference=primary&Blog=MongoDB%20Compass&ssl=true";
+const devConfig = {
+  db: connectionString,
+  jwt_key: "FbW43-2-110%",
+};
+//configuration parameters for the productive environment
+const prodConfig = {
+  //Using PROD_recordShop as a productive database on the same mongodb cluster
+  db:
+    //using a difeerent jwt key for the productive environment
+    connectionString,
+  jwt_key: "PROD_FbW43-2-110%",
+};
+//choose the devConfig or prodConfig depending on the config.env value
+const currentConfig = config.env === "productive" ? prodConfig : devConfig;
+//export the env, db and jwt_key
+module.exports = Object.assign({}, config, currentConfig);
