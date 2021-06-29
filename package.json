@@ -16,6 +16,7 @@
     "lodash": "^4.17.21",
     "lodash.isempty": "^4.4.0",
     "lowdb": "^1.0.0",
+    "node": "^16.4.0",
     "seed": "^0.4.4"
   },
   "devDependencies": {
