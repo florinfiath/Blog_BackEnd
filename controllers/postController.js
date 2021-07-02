@@ -6,7 +6,7 @@ const isEmpty = require("lodash.isempty");
 
 var createError = require("http-errors");
 
-const Post = require('../models/Post')
+const Post = require('../routes/models/Post')
 
 
 exports.getPosts = async (req, res, next) => {

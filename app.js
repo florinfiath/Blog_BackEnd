@@ -28,6 +28,7 @@ const app = express();
 /** LOGGING */
 app.use(logger("dev"));
 //let connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.5jwqg.mongodb.net/Blog?retryWrites=true&w=majority`;
+
 /**CONNECT TO DB */
 mongoose.connect(config.db, {
   useNewUrlParser: true,

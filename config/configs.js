@@ -6,8 +6,7 @@ const config = {
   env: env.NODE_ENV || "development",
 };
 //configuration parameters for the local environment
-const connectionString =
-  "mongodb+srv://Florin:test1234@cluster0.5jwqg.mongodb.net/test?authSource=admin&replicaSet=atlas-x9nrpz-shard-0&readPreference=primary&Blog=MongoDB%20Compass&ssl=true";
+const connectionString ="mongodb+srv://florin:test1234@cluster0.5jwqg.mongodb.net/Blog?retryWrites=true&w=majority";
 const devConfig = {
   db: connectionString,
   jwt_key: "FbW43-2-110%",
