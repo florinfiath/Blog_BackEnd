@@ -29,16 +29,16 @@ const app = express();
 app.use(logger("dev"));
 //let connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.5jwqg.mongodb.net/Blog?retryWrites=true&w=majority`;
 /**CONNECT TO DB */
-// mongoose.connect(config.db, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
+mongoose.connect(config.db, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-// const db = mongoose.connection;
-// db.on("error", console.error.bind(console, "connection error:"));
-// db.once("open", () => {
-//   console.log("Successfully connected to the database ");
-// });
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", () => {
+  console.log("Successfully connected to the database ");
+});
 
 // SETTING UP LOWDB database
 // const adapter = new FileSync("data/db.json");
